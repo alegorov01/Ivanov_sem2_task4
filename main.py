@@ -1,16 +1,43 @@
-# This is a sample Python script.
+import turtle as tur
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+def curve(iter):
+    if(iter < 0):
+        tur.forward(size)
+        return None
+    curve(iter-1)
+    tur.right(45)
+    tur.forward(size)
+    tur.right(45)
+    curve(iter-1)
+    for i in range(3):
+        tur.left(45)
+        tur.forward(size)
+    tur.left(45)
+    curve(iter-1)
+    tur.right(45)
+    tur.forward(size)
+    tur.right(45)
+    curve(iter-1)
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def draw(iter):
+    for i in range(4):
+        curve(iter-1)
+        tur.right(45)
+        tur.forward(size)
+        tur.right(45)
+# Конфигурация
+iter = 5
+size = 5
+tur.tracer(1000)
 
+# Начало для черепашки
+offset=70
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+tur.setpos(-(offset+1)*size,(offset+1)*size)
+tur.clear()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+#Рисуем
+draw(iter)
+
+tur.mainloop()
